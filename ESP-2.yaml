@@ -1,0 +1,53 @@
+external_components:
+  - source: github://oxan/esphome-stream-server
+
+esphome:
+  name: xtend-gateway
+  friendly_name: xtend-gateway
+
+esp8266:
+  board: d1_mini
+
+# Disable logging
+logger:
+  baud_rate: 0
+
+ota:
+  password: "<enter ota password here>"
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "<put random key here>"
+
+uart:
+  id: uart_bus
+  rx_pin: GPIO3
+  baud_rate: 115200
+  rx_buffer_size: 4096
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xtend-Gateway Fallback Hotspot"
+    password: "<think of a backup password>"
+
+captive_portal:
+
+stream_server:
+   uart_id: uart_bus
+   port: 1234
+   buffer_size: 4096
+
+binary_sensor:
+  - platform: stream_server
+    connected:
+      name: Connected
+
+sensor:
+  - platform: stream_server
+    connection_count:
+      name: Number of connections
