@@ -3,6 +3,7 @@ This is small writeup/howto to connect the Intergas Xtend hybrid heat-pump to Ho
 
 # Requirements
 * 2x ESP8266
+* 1x USB to micro-usb cable
 * 3x female to female dupont wires ([link](https://www.tinytronics.nl/shop/en/cables-and-connectors/cables-and-adapters/prototyping-wires/dupont-compatible-and-jumper/dupont-jumper-wire-female-female-10cm-10-wires))
 * [Home Assistant](https://www.home-assistant.io/)
 * [Node-RED](https://nodered.org/)
@@ -27,6 +28,14 @@ The second ESP will connect with serial to ESP1, and allow us to bridge the seri
 1. Download and edit [this](ESP-2.yaml) file, change the secrets
 2. Setup ESPHome if you haven't already ([link](https://esphome.io/guides/getting_started_command_line))
 3. Flash `ESP2-2.yaml` on ESP2 with ESPHome
+
+## Wiring the ESP's
+For the serial connection to work we need to connect 3 pins, use the follwing schema to connect them: [photo](https://raw.githubusercontent.com/thomasvt1/xtend-bridge/main/images/esp-connected.jpg)
+| ESP1 | ESP2 |
+|------|------|
+| GND  | GND  |
+| 5V   | 5V   |
+| TX   | RX   |
 
 ## Setting up Node-RED
 Node-RED will connect to ESP-2 with a ser2net client, convert and parse the data and send it to Home Assistant using [Node-RED Home Assistant plugin](node-red-contrib-home-assistant-websocket).
