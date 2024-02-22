@@ -2,7 +2,7 @@
 This is small writeup/howto to connect the Intergas Xtend hybrid heat-pump to Home Assistant.
 
 # Requirements
-* 2x [ESP8266](https://www.tinytronics.nl/en/development-boards/microcontroller-boards/with-wi-fi/esp8266-nodemcu-v2)
+* 2x ESP8266 ([link](https://www.tinytronics.nl/en/development-boards/microcontroller-boards/with-wi-fi/esp8266-nodemcu-v2))
 * 1x USB to micro-usb cable
 * 3x female to female dupont wires ([link](https://www.tinytronics.nl/shop/en/cables-and-connectors/cables-and-adapters/prototyping-wires/dupont-compatible-and-jumper/dupont-jumper-wire-female-female-10cm-10-wires))
 * [Home Assistant](https://www.home-assistant.io/)
