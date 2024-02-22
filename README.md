@@ -20,7 +20,7 @@ This setup 'abuses' the AP mode of the Xtend by polling the Xtend API every 10 s
 The first ESP8266 will connect to the Xtend heatpump, currently this is only possible when the Xtend is in 'AP mode' (purple light blinking). So after flashing the ESP don't forget to push the button on the Xtend.
 ### Steps
 1. Download and edit [this](ESP-1.ino) file, change line 35 with your Xtend's WiFi SSID and password
-1. Flash the `ESP-1.ino` file on ESP1
+2. Flash the `ESP-1.ino` file on ESP1
 
 ## Setting up the second ESP8266
 The second ESP will connect with serial to ESP1, and allow us to bridge the serial from ESP1 to your local network.
@@ -42,7 +42,8 @@ Node-RED will connect to ESP-2 with a ser2net client, convert and parse the data
 ### Steps
 1. Import [flows.json](flows.json) into Node-RED
 2. If you haven't set-up the Node-RED Home Assistant plugin, use this [documentation](https://zachowj.github.io/node-red-contrib-home-assistant-websocket/guide/#using-the-palette-manager)
-3. Deploy the flow
+3. Open the first node 'xtend-gateway' and change the IP address to the IP-address of ESP2
+4. Deploy the flow
 
 ## Home Assistant
 Home Assistant just requires a few things to get your Xtend data available
